@@ -1,0 +1,42 @@
+﻿﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Tinoco14.Views.MatriculaView">
+    <ContentPage.Content>
+        <StackLayout>
+            <DatePicker x:Name="dpDate"></DatePicker>
+            <Entry Placeholder="Nombre del alumno" x:Name="txtName" HorizontalOptions="FillAndExpand"/>
+            <Entry Placeholder="Nombre del curso" x:Name="txtCurso" HorizontalOptions="FillAndExpand"/>
+
+            <StackLayout RadioButtonGroup.GroupName="gender" x:Name="rbgGender">
+                <Label Text="Cual es tu genero?" />
+                <RadioButton Content="Hombre" 
+                             IsChecked="True" x:Name="rbHombre"/>
+                <RadioButton Content="Mujer" />
+            </StackLayout>
+            
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Save" Clicked="Button_Clicked"/>
+                <Button Text="Show" Clicked="Button_Clicked_1"/>
+            </StackLayout>
+            
+            <Entry Placeholder="Filter" x:Name="txtFilter" HorizontalOptions="FillAndExpand"/>
+            <Button Text="ShowByText" Clicked="Button_Clicked_2"/>
+
+            <ListView x:Name="lvMatriculas">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Date}"></Label>
+                                <Label Text="{Binding Name}"></Label>
+                                <Label Text="{Binding Curso}"></Label>
+                                <Label Text="{Binding Gender}"></Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
